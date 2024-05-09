@@ -12,18 +12,69 @@
     <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300..900&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" type="text/css" href="stylesheets/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <script src="home.js" defer></script>
-    <script src="search.js" defer></script>
+    <script src="javascript/product-grabber.js" type="module" defer></script>
 </head>
 
 
 <body>
     <header>
-        <!-- NavBar and others -->
+        <div class="container">
+                <div class="row align-items-center">
+                    <div class="navbar-top-wrapper">
+                        <div class="container-lg">
+                            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                                <div class="container-fluid">
+                                    <a class="navbar-brand" href="index.html">Navbar</a>
+                                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                                        <span class="navbar-toggler-icon"></span>
+                                    </button>
+                                    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                                        <ul class="navbar-nav justify-content-between me-auto mb-2 mb-lg-0">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                                            </li>
+                                        </ul>
+                                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                                            <li class="nav-item me-2">
+                                                <a class="nav-link icon-btn primary-icon-text icon-text-btn" ><i class="fa-solid fa-cart-shopping" href="#"></i></a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">Login</a>
+                                            </li>
+                                        </ul>
+                                        <form class="d-flex" role="search">
+                                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                                            <button class="btn btn-outline-success" type="submit">Search</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>            
+        </div>
     </header>
 
     <main>
-
+        <div class="bg-color-dark">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="mb-50">
+                            <h1 class="heading-1 font-weight-700">Featured Items</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="row card-recipe">
+                            <!-- Card Recipe -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
     </main>
 
     <footer>
