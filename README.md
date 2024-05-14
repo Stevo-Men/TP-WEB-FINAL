@@ -17,10 +17,10 @@ TODO
               connexion réussie.
       
 - - - Page d'Accueil - - -
-    - 
-IN PROGRESS  *  Création d'une page d'accueil avec affichage attrayant des produits en vedette (Ne pas
+    -
+              ● Création d'une page d'accueil avec affichage attrayant des produits en vedette (Ne pas
               afficher tous les produits).
-DONE  *   Récupération des produits en vedette à partir de l'API de produits dummyJSON.
+              ● Récupération des produits en vedette à partir de l'API de produits dummyJSON.
               ● Affichage du nom de l'utilisateur dans le navbar si connecté.
               ● Transformation du lien vers la page de login en bouton de déconnexion si l'utilisateur est
               connecté et suppression du cookie en cas de déconnexion.
