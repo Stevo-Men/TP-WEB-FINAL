@@ -1,3 +1,12 @@
-.bg-color-dark {
-    background-color: #191B1D;
+.orange-background {
+    background-color: #ECB84D;
+}
+
+.orange-header  {
+    background-color: #bb7d02;
+}
+
+h1 {
+    font-size: 4.5rem;
+    letter-spacing: 0.2rem;
 }
