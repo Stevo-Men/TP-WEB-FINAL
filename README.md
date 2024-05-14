@@ -17,7 +17,7 @@ TODO
               connexion réussie.
       
 - - - Page d'Accueil - - -
-    - 
+    -
               ● Création d'une page d'accueil avec affichage attrayant des produits en vedette (Ne pas
               afficher tous les produits).
               ● Récupération des produits en vedette à partir de l'API de produits dummyJSON.
