@@ -1,9 +1,11 @@
+@import url(stylesheets/login.css);
+
 .orange-background {
-    background-color: #ECB84D;
+    background-color: #ECB84D
 }
 
 .orange-header  {
-    background-color: #bb7d02;
+    background-color:#d1a245
 }
 
 h1 {
@@ -11,3 +13,37 @@ h1 {
     letter-spacing: 0.2rem;
 }
 
+.login-color {
+    color: #000000;
+    background-color: white;
+    border: solid 1px #000000;
+}
+
+.login-color:hover {
+    outline-color: #000000;
+    background-color: rgb(206, 206, 206);
+    border: solid 1px #000000;
+}
+
+.gradient-custom-2 {
+    /* fallback for old browsers */
+    background: #fccb90;
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #ee7724,  #ECB84D, #b44593);
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #f0a15d, #ECB84D,  rgb(202, 140, 65));
+    }
+    
+    @media (min-width: 768px) {
+    .gradient-form {
+    height: 100vh !important;
+    }
+    }
+    @media (min-width: 769px) {
+    .gradient-custom-2 {
+    border-top-right-radius: .3rem;
+    border-bottom-right-radius: .3rem;
+    }
+    }
