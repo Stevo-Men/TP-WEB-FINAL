@@ -1,35 +1,62 @@
-async function fetchProducts() {
-  try {
-      const response = await fetch('https://dummyjson.com/products');
-      const json = await response.json();
-      const products = json.products.slice(0, 3);
-      return products;
-  } catch (error) {
-      console.error('Error fetching products:', error);
-      return null;
-  }
+var cardContainer = document.getElementById("card-container");
+var allProducts = []; // Array to hold all products
+
+function drawCard(product) {
+  var card = document.createElement("div");
+  card.classList.add("col");
+  card.classList.add("mb-4"); // Add margin bottom to each card for spacing
+  card.innerHTML = `
+      <div class="card h-100 card-settings" data-id="${product.id}" data-category="${product.category}">
+          <img src="${product.thumbnail}" class="card-img-top" alt="${product.title}">
+          <div class="card-body">
+              <h5 class="card-title">${product.title}</h5>
+              <p class="card-text"><strong>Category:</strong> ${product.category}</p>
+              <p class="card-text"><strong>Rating:</strong> ${product.rating}/5 (${product.stock} in stock)</p>
+              <p class="card-text"><strong>Price:</strong> $${product.price}</p>
+              <div class="button-align">
+                  <button class="btn btn-primary button-products add-to-cart" id="add-to-cart-${product.id}" data-id="${product.id}" data-name="${product.title}" data-price="${product.price}" data-image-url="${product.thumbnail}">Add to Cart</button>
+                  <button class="btn btn-secondary button-products product-details" data-id="${product.id}">Product Details</button>
+              </div>
+          </div>
+      </div>
+  `;
+  cardContainer.appendChild(card);
 }
 
-async function populateProducts() {
-  const products = await fetchProducts();
-  if (!products) {
-      console.error('Failed to fetch products');
-      return;
-  }
+function getProductsFromAPI(url) {
+  fetch(url)
+    .then(res => res.json())
+    .then(json => {
+      allProducts = json.products;
+      // Filter products with rating above 4.5
+      var topRatedProducts = allProducts.filter(product => product.rating > 4.55);
+      // Sort products by rating in descending order
+      topRatedProducts.sort((a, b) => b.rating - a.rating);
+      // Display the top-rated products
+      topRatedProducts.forEach(product => drawCard(product));
+    })
+    .finally(attachEventListenersToButtons);
+}
 
-  const cardImages = document.querySelectorAll('.card-img-top');
-  const cardTitles = document.querySelectorAll('.card-title');
-  const cardTexts = document.querySelectorAll('.card-text');
+function attachEventListenersToButtons() {
+  var addToCartButtons = document.getElementsByClassName("add-to-cart");
+  Array.from(addToCartButtons).forEach(button => {
+    button.addEventListener("click", function () {
+      const id = button.getAttribute('data-id');
+      const name = button.getAttribute('data-name');
+      const price = parseFloat(button.getAttribute('data-price'));
+      const imageUrl = button.getAttribute('data-image-url');
+      addToCart(id, name, price, imageUrl);
+    });
+  });
 
-  products.forEach((product, index) => {
-      if (index < cardImages.length) {
-          cardImages[index].src = product.images; // Assuming 'image' is the key for the image URL in your JSON data
-          cardImages[index].alt = product.title; // Assuming 'title' is the key for the product title in your JSON data
-          cardTitles[index].textContent = product.title;
-          cardTexts[index].textContent = product.description;
-      }
+  var productDetailsButtons = document.getElementsByClassName("product-details");
+  Array.from(productDetailsButtons).forEach(button => {
+    button.addEventListener("click", function () {
+      const id = button.getAttribute('data-id');
+      window.location.href = `detail.html?id=${id}`;
+    });
   });
 }
 
-// Call populateProducts to populate the card group
-populateProducts();
+getProductsFromAPI('https://dummyjson.com/products?limit=1000');
