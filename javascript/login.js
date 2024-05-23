@@ -1,5 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
     updateHeader();
+
+    document.addEventListener('click', (event) => {
+        const dropdown = document.getElementById('user-dropdown');
+        const userLink = document.getElementById('user-link');
+
+        // If dropdown is open and click is outside the dropdown and userLink, close the dropdown
+        if (dropdown.classList.contains('show') && !dropdown.contains(event.target) && event.target !== userLink) {
+            dropdown.classList.remove('show');
+        }
+    });
 });
 
 function login() {
@@ -48,6 +58,8 @@ function updateHeader() {
 
 function toggleDropdown(event) {
     event.preventDefault();
+    event.stopPropagation(); // Prevent the event from bubbling up to the document
+
     const dropdown = document.getElementById('user-dropdown');
     dropdown.classList.toggle('show');
 }
