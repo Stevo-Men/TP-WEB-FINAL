@@ -28,8 +28,8 @@ function getProductsFromAPI(url) {
     .then(res => res.json())
     .then(json => {
       allProducts = json.products;
-      // Filter products with rating above 4.5
-      var topRatedProducts = allProducts.filter(product => product.rating > 4.55);
+      // Filter products with rating above 4.7
+      var topRatedProducts = allProducts.filter(product => product.rating > 4.7);
       // Sort products by rating in descending order
       topRatedProducts.sort((a, b) => b.rating - a.rating);
       // Display the top-rated products

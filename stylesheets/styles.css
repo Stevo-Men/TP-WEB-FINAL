@@ -4,10 +4,11 @@ body {
     justify-content: space-between;
     min-height: 100vh;
     gap: 2rem;
+    background-color: #000000;
 }
 
 header  {
-    background-color:#a0a1a0;
+    background-color: #036e5f;
 }
 
 .navbar-cart-dropdown {
@@ -16,24 +17,86 @@ header  {
 }
 
 
+#card-container .card-settings {
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+    border-radius: 12px !important;
+    border: none;
+    background-color: #ffffff;
+    padding-block: 1rem;
+  }
+  
+  .card-settings:hover {
+    transform: translateY(-10px);
+  }
+  
+  .card-settings {
+    transition: all 0.5s ease;
+  }
+  
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  
+.btn-secondary:hover,
+.btn-secondary:focus {
+  background-color: #012b3f !important;
+  color: #ffffff;
+}
+.btn-secondary {
+    width: fit-content !important;
+    padding: 10px 10px;
+    font-size: 16px;
+    border-radius: 12px;
+    transition: background-color 0.3s, border-color 0.3s;
+    background-color: #025378 !important;
+    border: none;
+    overflow: hidden;
+    overflow: hidden;
+    color: #ffffff !important;
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #01362f !important;
+  color: #ffffff;
+}
+
+.btn-primary {
+  width: fit-content !important;
+  padding: 10px 10px;
+  font-size: 16px;
+  border-radius: 12px;
+  transition: background-color 0.3s, border-color 0.3s;
+  background-color: #036e5f !important;
+  border: none;
+  overflow: hidden;
+  overflow: hidden;
+  color: #ffffff !important;
+}
+
+
 /* Ensure all text in the navbar is black */
 .navbar-nav .nav-link,
 .navbar-nav .dropdown-item,
 .navbar-nav .dropdown-header,
 .navbar-nav .badge {
-    color: #000 !important; /* Set text color to black */
+    color: #ffffff !important; /* Set text color to black */
 }
 
 .navbar-nav .nav-link:hover,
 .navbar-nav .dropdown-item:hover,
 .navbar-nav .dropdown-header:hover,
 .navbar-nav .badge:hover {
-    color: #000 !important; /* Ensure text remains black on hover */
+    color: #ffffff !important; /* Ensure text remains black on hover */
 }
 
 .navbar-nav .nav-link .fas,
 .navbar-nav .dropdown-toggle .fas {
-    color: #000 !important; /* Set icon color to black */
+    color: #ffffff !important; /* Set icon color to black */
 }
 
 .navbar-nav .dropdown-menu {
@@ -41,13 +104,7 @@ header  {
 }
 
 .badge {
-    background-color: #fff;
-}
-
-
-h1.mx-auto {
-    text-align: center;
-    margin: 0;
+    background-color: #000000;
 }
 
 .navbar-nav .nav-item {
@@ -58,7 +115,7 @@ h1.mx-auto {
 .card-settings {
     width: 300px; /* Set the maximum width for cards */
     margin: 0 auto; /* Center align cards */
-    background-color: #fff;
+    background-color: #000000 !important;
 }
 
 
@@ -67,7 +124,7 @@ h1.mx-auto {
 footer {
     display: flex;
     flex-direction: column;
-    background-color: #a0a1a0;
+    background-color: #036e5f;
     padding-top: 2rem;
     padding-inline: 1rem;
     justify-content: center;
@@ -108,18 +165,23 @@ footer .bg-dark {
     padding: 6px;
     margin: 0 5px;
     border-radius: 4px;
-    border: 1px solid #ccc;
+    border: 1px solid #ffffff !important;
     cursor: pointer;
+    background-color: #000000;
+    color: #fff;
+
 }
 
 .quantity-input {
     width: 50px;
     padding: 6px;
-    border: 1px solid #ccc;
+    border: 1px solid #ffffff;
     border-radius: 4px;
     font-size: 14px;
     text-align: center;
     outline: none;
+    color: #fff;
+    background-color: #000;
 }
 
 .product-content {
@@ -129,24 +191,32 @@ footer .bg-dark {
     align-items: center;
 }
 
-.quantity-input:focus {
-    border-color: #2d70ed;
+.quantity-input:hover {
+    border: 1px solid #036e5f !important;
 }
 
 .quantity-modify:hover {
-    background-color: #2d70ed;
     outline: none;
-    border-color: #2d70ed;
+    border: 1px solid #036e5f !important;
 }
 
 /* Cart dropdown styles */
 .navbar-cart-dropdown {
-    background-color: white;
-    border-radius: 10px;
-    padding: 15px;
-    border: #000;
+    background-color: rgb(0, 0, 0);
+    padding: 1rem;
 }
 
+.checkout-product {
+    background-color: #000 !important;
+    color: #fff !important;
+}
+
+.dropdown-menu {
+    background-color: rgb(0, 0, 0) !important;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
 .checkout-style {
     width: 300px;
 }
@@ -156,10 +226,9 @@ footer .bg-dark {
     width: 50px;
     height: 50px;
     object-fit: cover;
-    border-radius: 5px;
+    border-radius: 12px;
     margin-right: 10px;
 }
-
 
 .product-content-inner {
     display: flex;
@@ -173,38 +242,6 @@ footer .bg-dark {
     align-items: center;
     margin-bottom: 5px;
     font-size: 16px;
-}
-
-.checkout-footer .checkout-btn .main-btn {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    text-align: center;
-    border-radius: 5px;
-    margin-top: 10px;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-.checkout-footer .checkout-btn .primary-btn-border {
-    color: #343a40;
-    border: 2px solid #343a40;
-    background-color: white;
-}
-
-.checkout-footer .checkout-btn .primary-btn-border:hover {
-    background-color: #343a40;
-    color: white;
-}
-
-.checkout-footer .checkout-btn .primary-btn {
-    background-color: #343a40;
-    color: white;
-}
-
-.checkout-footer .checkout-btn .primary-btn:hover {
-    background-color: #495057;
-    color: white;
 }
 
 /* Responsive styles */
@@ -227,14 +264,11 @@ footer .bg-dark {
 #search-container {
   position: relative;
   flex-grow: 1;
-  /* Permet au container de s'étendre tout en laissant de la place pour le bouton */
 }
 
 #search-input::placeholder {
-  color: #000 !important;
-  /* Définit la couleur du placeholder en noir */
+  color: #ffffff !important;
   opacity: 1;
-  /* Assure que la couleur est bien saturée et visible */
 }
 
 /* Réinitialisation des styles pour la section de recherche */
@@ -242,9 +276,8 @@ footer .bg-dark {
 #search-container button,
 #suggestions-box {
   all: unset;
-  /* Réinitialise tous les styles par défaut */
   box-sizing: border-box;
-  color: #000;
+  color: #ffffff;
 }
 
 /* Styles de base pour l'input et le bouton */
@@ -256,7 +289,7 @@ footer .bg-dark {
 }
 
 #search-container input {
-  border: 2px solid #96c13d;
+  border: 2px solid #ffffff;
   border-radius: 12px;
 }
 
@@ -267,26 +300,12 @@ footer .bg-dark {
   /* Supprime l'outline par défaut pour le focus */
 }
 
-/* Styles pour la boîte de suggestions */
-#suggestions-box {
-  display: none;
-  /* Cache par défaut la boîte de suggestions */
-  width: 100%;
-  background-color: transparent;
-  border-radius: 12px;
-  z-index: 1000;
-  /* Assure que la boîte de suggestions est au-dessus des autres éléments */
-  position: absolute;
-  /* Positionne relativement au conteneur */
-}
-
 .suggestions-box {
     max-height: 300px !important;
     overflow-y: auto !important;
     
 }
 
-/* Styles lorsque la boîte de suggestions est visible */
 #suggestions-box.visible {
   display: block;
 }
@@ -297,14 +316,15 @@ footer .bg-dark {
 
 .suggestions-box div {
   display: flex;
-  background-color: var(--color-bg);
+  background-color: transparent;
   justify-content: space-between;
   padding: 8px;
   cursor: pointer;
-  border-bottom: 1px solid #e0e0e0;
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.15) !important;
+  border-bottom: 1px solid #ffffff;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1) !important;
   border-top: none;
   overflow: hidden;
+  background-color: #000;
 }
 
 .suggestions-box div:first-child {
@@ -319,7 +339,8 @@ footer .bg-dark {
 
 
 .suggestions-box div:hover {
-  background-color: #e0e0e0;
+  background-color: #036e5f !important;
+  border-bottom: 1px solid #036e5f;
 }
 
 #suggestions-box div span {
@@ -341,7 +362,7 @@ footer .bg-dark {
 }
 
 #search-input::placeholder {
-    color: #000 !important;
+    color: #ffffff !important;
     opacity: 1;
 }
 
@@ -350,7 +371,7 @@ footer .bg-dark {
 #suggestions-box {
     all: unset;
     box-sizing: border-box;
-    color: #000;
+    color: #ffffff;
 }
 
 #search-container input,
@@ -361,22 +382,29 @@ footer .bg-dark {
 }
 
 #search-container input {
-    border: 2px solid #96c13d;
+    border: 2px solid #ffffff;
     border-radius: 12px;
 }
 
 #search-container input:focus {
-    border-color: #68862b;
+    border-color: #036e5f;
     outline: none;
 }
 
 #suggestions-box {
     display: none;
     width: 100%;
-    background-color: transparent;
+    background-color: #000000;
     border-radius: 12px;
     z-index: 1000;
     position: absolute;
+    border: 2px solid #fff;
+}
+
+#suggestions-box:hover {
+    border: 2px solid #036e5f;
+    background-color:  #036e5f;
+    
 }
 
 #suggestions-box.visible {
@@ -385,18 +413,6 @@ footer .bg-dark {
 
 .search-section button {
     margin-left: 1rem;
-}
-
-.suggestions-box div {
-    display: flex;
-    background-color: var(--color-bg);
-    justify-content: space-between;
-    padding: 8px;
-    cursor: pointer;
-    border-bottom: 1px solid #e0e0e0;
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.15) !important;
-    border-top: none;
-    overflow: hidden;
 }
 
 .suggestions-box div:first-child {
@@ -410,7 +426,7 @@ footer .bg-dark {
 }
 
 .suggestions-box div:hover {
-    background-color: #e0e0e0;
+    background-color: #036e5f;
 }
 
 #suggestions-box div span {
@@ -445,4 +461,89 @@ footer .bg-dark {
 
 .user-dropdown a:hover {
     background-color: #f1f1f1;
+}
+
+.login-section .card-body {
+    background-color: #000 !important;
+    color: #fff !important;
+}
+
+.login-section {
+    background-color: #000 !important;
+    color: #fff !important;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ffffff;
+    border-radius: 12px;
+    box-sizing: border-box;
+    background-color: #000;
+    color: #ffffff; /* Ensure the text color is visible on the dark background */
+}
+
+.form-control:hover, .form-control:focus {
+    border-color: #036e5f;
+    outline: none;
+    background-color: #000;
+}
+
+.form-control:focus {
+    outline: none !important;
+}
+
+::placeholder { 
+    font-style: var(--ff-body); 
+    color: #ffffff; /* Ensure placeholder text is visible on the dark background */
+}
+
+.form-control::placeholder {
+    font-style: var(--ff-body); 
+    color: #ffffff; /* Ensure placeholder text is visible on the dark background */
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    border: none;
+    -webkit-box-shadow: none;
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: #ffffff !important; /* Ensure autofill text color is visible on the dark background */
+}
+/* Hide the built-in eye icon for password input fields */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+    display: none;
+}
+
+input[type="password"]::-webkit-reveal-button {
+    display: none;
+}
+
+.position-relative {
+    position: relative;
+}
+
+.password-container {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.toggle-password i {
+    color: #ffffff; /* Set eye icon color to white */
 }
