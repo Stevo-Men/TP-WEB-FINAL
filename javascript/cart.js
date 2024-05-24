@@ -20,7 +20,6 @@ const updateCartUI = () => {
     }
 };
 
-
 const updateCartForNavbar = (cartBodyId, subtotalPriceId, tpsPriceId, tvqPriceId, totalPriceId, cartCountId) => {
     const cartBody = document.getElementById(cartBodyId);
     const subtotalPrice = document.getElementById(subtotalPriceId);
@@ -29,34 +28,35 @@ const updateCartForNavbar = (cartBodyId, subtotalPriceId, tpsPriceId, tvqPriceId
     const totalPrice = document.getElementById(totalPriceId);
     const cartCount = document.getElementById(cartCountId);
 
-
     cartBody.innerHTML = '';
     let subtotal = 0;
     cart.forEach(product => {
-        const row = document.createElement('div');
-        row.className = 'cart-item';
-        row.innerHTML = `
-            <div class="checkout-product">
-                <div class="product-cart">
-                    <h3 class="title mb-2">${product.name}</h3>
-                    <div class="product-content">
-                        <div class="product-content-inner">
-                            <div>
-                                <img src="${product.imageUrl}" alt="${product.name}">
+        if (product.quantity > 0 || (product.quantity === 0 && timeouts[product.id])) { // Only display products with quantity > 0 or with a timeout set
+            const row = document.createElement('div');
+            row.className = 'cart-item';
+            row.innerHTML = `
+                <div class="checkout-product">
+                    <div class="product-cart">
+                        <h3 class="title mb-2">${product.name}</h3>
+                        <div class="product-content">
+                            <div class="product-content-inner">
+                                <div>
+                                    <img src="${product.imageUrl}" alt="${product.name}">
+                                </div>
+                                <div>
+                                    <button class="quantity-modify decrease" onclick="modifyQuantity('${product.id}', -1)">-</button>
+                                    <input class="quantity-input text-center" style="width: 60px;" value="${product.quantity}" min="0" max="1000" data-id="${product.id}" onchange="updateQuantityFromInput(this)">
+                                    <button class="quantity-modify increase" onclick="modifyQuantity('${product.id}', 1)">+</button>
+                                </div>
                             </div>
-                            <div>
-                                <button class="quantity-modify decrease" onclick="modifyQuantity('${product.id}', -1)">-</button>
-                                <input class="quantity-input text-center" style="width: 60px;" value="${product.quantity}" min="0" max="1000" data-id="${product.id}" onchange="updateQuantityFromInput(this)">
-                                <button class="quantity-modify increase" onclick="modifyQuantity('${product.id}', 1)">+</button>
-                            </div>
+                            <div class="custom-price-margin">Price: $${(product.price * product.quantity).toFixed(2)}</div>
                         </div>
-                        <div class="custom-price-margin">Price: $${(product.price * product.quantity).toFixed(2)}</div>
                     </div>
                 </div>
-            </div>
-        `;
-        cartBody.appendChild(row);
-        subtotal += product.price * product.quantity;
+            `;
+            cartBody.appendChild(row);
+            subtotal += product.price * product.quantity;
+        }
     });
 
     calculateAndDisplayTotals(subtotal, subtotalPriceId, tpsPriceId, tvqPriceId, totalPriceId, cartCountId);
@@ -68,30 +68,32 @@ const updateCartForCheckout = (cartContentId, subtotalPriceId, tpsPriceId, tvqPr
     cartContent.innerHTML = '';
     let subtotal = 0;
     cart.forEach(product => {
-        const row = document.createElement('div');
-        row.className = 'cart-item';
-        row.innerHTML = `
-            <div class="checkout-product">
-                <div class="product-cart">
-                    <h3 class="title mb-2">${product.name}</h3>
-                    <div class="product-content">
-                        <div class="product-content-inner">
-                            <div>
-                                <img src="${product.imageUrl}" alt="${product.name}">
+        if (product.quantity > 0 || (product.quantity === 0 && timeouts[product.id])) { // Only display products with quantity > 0 or with a timeout set
+            const row = document.createElement('div');
+            row.className = 'cart-item';
+            row.innerHTML = `
+                <div class="checkout-product">
+                    <div class="product-cart">
+                        <h3 class="title mb-2">${product.name}</h3>
+                        <div class="product-content">
+                            <div class="product-content-inner">
+                                <div>
+                                    <img src="${product.imageUrl}" alt="${product.name}">
+                                </div>
+                                <div>
+                                    <button class="quantity-modify decrease" onclick="modifyQuantity('${product.id}', -1)">-</button>
+                                    <input class="quantity-input text-center" style="width: 60px;" value="${product.quantity}" min="0" max="1000" data-id="${product.id}" onchange="updateQuantityFromInput(this)">
+                                    <button class="quantity-modify increase" onclick="modifyQuantity('${product.id}', 1)">+</button>
+                                </div>
                             </div>
-                            <div>
-                                <button class="quantity-modify decrease" onclick="modifyQuantity('${product.id}', -1)">-</button>
-                                <input class="quantity-input text-center" style="width: 60px;" value="${product.quantity}" min="0" max="1000" data-id="${product.id}" onchange="updateQuantityFromInput(this)">
-                                <button class="quantity-modify increase" onclick="modifyQuantity('${product.id}', 1)">+</button>
-                            </div>
+                            <div class="custom-price-margin">Price: $${(product.price * product.quantity).toFixed(2)}</div>
                         </div>
-                        <div class="custom-price-margin">Price: $${(product.price * product.quantity).toFixed(2)}</div>
                     </div>
                 </div>
-            </div>
-        `;
-        cartContent.appendChild(row);
-        subtotal += product.price * product.quantity;
+            `;
+            cartContent.appendChild(row);
+            subtotal += product.price * product.quantity;
+        }
     });
 
     calculateAndDisplayTotals(subtotal, subtotalPriceId, tpsPriceId, tvqPriceId, totalPriceId);
@@ -154,12 +156,9 @@ const updateQuantityFromInput = (input) => {
     const quantity = parseInt(input.value) || 0;
     const product = cart.find(p => p.id === productId);
     if (product) {
+        const initialQuantity = product.quantity;
         product.quantity = Math.max(0, Math.min(1000, quantity));
-        if (timeouts[productId]) {
-            clearTimeout(timeouts[productId]);
-            delete timeouts[productId];
-        }
-        if (product.quantity === 0) {
+        if (initialQuantity !== 0 && product.quantity === 0) {
             timeouts[productId] = setTimeout(() => {
                 if (product.quantity === 0) {
                     cart = cart.filter(p => p.id !== productId);
@@ -168,6 +167,9 @@ const updateQuantityFromInput = (input) => {
                     updateCartUI();
                 }
             }, 3000);
+        } else if (timeouts[productId]) {
+            clearTimeout(timeouts[productId]);
+            delete timeouts[productId];
         }
         saveCart();
         updateCartUI();
