@@ -4,11 +4,11 @@ body {
     justify-content: space-between;
     min-height: 100vh;
     gap: 2rem;
-    background-color: #000000;
+    background-color: #1d1d1d;
 }
 
 header  {
-    background-color: #036e5f;
+    background-color: #036e60;
 }
 
 .navbar-cart-dropdown {
@@ -79,28 +79,27 @@ header  {
 }
 
 
-/* Ensure all text in the navbar is black */
 .navbar-nav .nav-link,
 .navbar-nav .dropdown-item,
 .navbar-nav .dropdown-header,
 .navbar-nav .badge {
-    color: #ffffff !important; /* Set text color to black */
+    color: #ffffff !important;
 }
 
 .navbar-nav .nav-link:hover,
 .navbar-nav .dropdown-item:hover,
 .navbar-nav .dropdown-header:hover,
 .navbar-nav .badge:hover {
-    color: #ffffff !important; /* Ensure text remains black on hover */
+    color: #0000005d !important;
 }
 
 .navbar-nav .nav-link .fas,
 .navbar-nav .dropdown-toggle .fas {
-    color: #ffffff !important; /* Set icon color to black */
+    color: #ffffff !important; 
 }
 
 .navbar-nav .dropdown-menu {
-    background-color: #fff; /* Ensure the dropdown menu has a white background */
+    background-color: #fff;
 }
 
 .badge {
@@ -113,14 +112,14 @@ header  {
 }
 
 .card-settings {
-    width: 300px; /* Set the maximum width for cards */
-    margin: 0 auto; /* Center align cards */
-    background-color: #000000 !important;
+    width: 300px;
+    margin: 0 auto; 
+    background-color: #00000054 !important;
 }
 
 
 
-/* Footer Styles */
+
 footer {
     display: flex;
     flex-direction: column;
@@ -146,13 +145,13 @@ footer ul li {
 }
 
 footer ul li a {
-    color: #333;
+    color: #000102cd;
     text-decoration: none;
     transition: color 0.3s;
 }
 
 footer ul li a:hover {
-    color: #007bff;
+    color: #ffffffc9;
 }
 
 footer .bg-dark {
@@ -200,19 +199,19 @@ footer .bg-dark {
     border: 1px solid #036e5f !important;
 }
 
-/* Cart dropdown styles */
+
 .navbar-cart-dropdown {
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(25, 25, 25) !important;
     padding: 1rem;
 }
 
 .checkout-product {
-    background-color: #000 !important;
+    background-color: rgb(25, 25, 25) !important;
     color: #fff !important;
 }
 
 .dropdown-menu {
-    background-color: rgb(0, 0, 0) !important;
+    background-color: rgb(25, 25, 25) !important;
     border-radius: 10px;
     border: none;
     box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
@@ -244,7 +243,7 @@ footer .bg-dark {
     font-size: 16px;
 }
 
-/* Responsive styles */
+
 @media (max-width: 767px) {
     .navbar-cart-dropdown {
         width: 100%;
@@ -264,6 +263,7 @@ footer .bg-dark {
 #search-container {
   position: relative;
   flex-grow: 1;
+
 }
 
 #search-input::placeholder {
@@ -271,7 +271,7 @@ footer .bg-dark {
   opacity: 1;
 }
 
-/* Réinitialisation des styles pour la section de recherche */
+
 #search-container input,
 #search-container button,
 #suggestions-box {
@@ -280,7 +280,7 @@ footer .bg-dark {
   color: #ffffff;
 }
 
-/* Styles de base pour l'input et le bouton */
+
 #search-container input,
 #search-container button {
   display: block;
@@ -293,11 +293,10 @@ footer .bg-dark {
   border-radius: 12px;
 }
 
-/* Styles pour l'input lorsqu'il est focus */
+
 #search-container input:focus {
   border-color: #68862b;
   outline: none;
-  /* Supprime l'outline par défaut pour le focus */
 }
 
 .suggestions-box {
@@ -436,7 +435,7 @@ footer .bg-dark {
     border-bottom: none;
 }
 
-/* Dropdown menu */
+
 .user-dropdown {
     display: none;
     position: absolute;
@@ -463,12 +462,12 @@ footer .bg-dark {
 }
 
 .login-section .card-body {
-    background-color: #000 !important;
+    background-color: #00000000 !important;
     color: #fff !important;
 }
 
 .login-section {
-    background-color: #000 !important;
+    background-color: #0000003a !important;
     color: #fff !important;
 }
 
@@ -480,7 +479,7 @@ footer .bg-dark {
     border-radius: 12px;
     box-sizing: border-box;
     background-color: #000;
-    color: #ffffff; /* Ensure the text color is visible on the dark background */
+    color: #ffffff; 
 }
 
 .form-control:hover, .form-control:focus {
@@ -495,15 +494,15 @@ footer .bg-dark {
 
 ::placeholder { 
     font-style: var(--ff-body); 
-    color: #ffffff; /* Ensure placeholder text is visible on the dark background */
+    color: #ffffff;
 }
 
 .form-control::placeholder {
     font-style: var(--ff-body); 
-    color: #ffffff; /* Ensure placeholder text is visible on the dark background */
+    color: #ffffff;
 }
 
-/* Autofill styles */
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -514,14 +513,14 @@ select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
     border-radius: 12px;
-    -webkit-text-fill-color: #ffffff !important; /* Text color */
-    border: 2px solid #ffffff !important; /* Ensure border is consistent */
-    font-family: inherit; /* Ensure consistent font */
-    font-size: inherit; /* Ensure consistent font size */
-    font-style: inherit; /* Ensure consistent font style */
+    -webkit-text-fill-color: #ffffff !important;
+    border: 2px solid #ffffff !important; 
+    font-family: inherit; 
+    font-size: inherit; 
+    font-style: inherit; 
 }
 
-/* Hide the built-in eye icon for password input fields */
+
 input[type="password"]::-ms-reveal,
 input[type="password"]::-ms-clear {
     display: none;
@@ -548,5 +547,9 @@ input[type="password"]::-webkit-reveal-button {
 }
 
 .toggle-password i {
-    color: #ffffff; /* Set eye icon color to white */
+    color: #ffffff; 
+}
+
+.price-text {
+    text-decoration-line: underline;
 }

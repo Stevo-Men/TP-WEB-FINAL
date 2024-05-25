@@ -73,7 +73,7 @@ input, textarea, select, label {
   box-shadow: none !important;
 }
 
-/* Custom placeholder styles */
+
 ::placeholder {
   font-family: var(--ff-body);
   color: #888;

@@ -31,25 +31,25 @@ const updateCartForNavbar = (cartBodyId, subtotalPriceId, tpsPriceId, tvqPriceId
     cartBody.innerHTML = '';
     let subtotal = 0;
     cart.forEach(product => {
-        if (product.quantity > 0 || (product.quantity === 0 && timeouts[product.id])) { // Only display products with quantity > 0 or with a timeout set
+        if (product.quantity > 0 || (product.quantity === 0 && timeouts[product.id])) {
             const row = document.createElement('div');
             row.className = 'cart-item';
             row.innerHTML = `
                 <div class="checkout-product">
                     <div class="product-cart">
-                        <h3 class="title mb-2">${product.name}</h3>
+                        <h2 class="title mb-2">${product.name}</h2>
                         <div class="product-content">
                             <div class="product-content-inner">
                                 <div>
                                     <img src="${product.imageUrl}" alt="${product.name}">
                                 </div>
-                                <div>
+                                <div class="d-flex align-items-center">
                                     <button class="quantity-modify decrease" onclick="modifyQuantity('${product.id}', -1)">-</button>
                                     <input class="quantity-input text-center" style="width: 60px;" value="${product.quantity}" min="0" max="1000" data-id="${product.id}" onchange="updateQuantityFromInput(this)">
                                     <button class="quantity-modify increase" onclick="modifyQuantity('${product.id}', 1)">+</button>
                                 </div>
                             </div>
-                            <div class="custom-price-margin">Price: $${(product.price * product.quantity).toFixed(2)}</div>
+                            <div class="custom-price-margin p-2">Price: $${(product.price * product.quantity).toFixed(2)}</div>
                         </div>
                     </div>
                 </div>
@@ -68,25 +68,25 @@ const updateCartForCheckout = (cartContentId, subtotalPriceId, tpsPriceId, tvqPr
     cartContent.innerHTML = '';
     let subtotal = 0;
     cart.forEach(product => {
-        if (product.quantity > 0 || (product.quantity === 0 && timeouts[product.id])) { // Only display products with quantity > 0 or with a timeout set
+        if (product.quantity > 0 || (product.quantity === 0 && timeouts[product.id])) { 
             const row = document.createElement('div');
             row.className = 'cart-item';
             row.innerHTML = `
                 <div class="checkout-product">
                     <div class="product-cart">
-                        <h3 class="title mb-2">${product.name}</h3>
-                        <div class="product-content">
+                        <h2 class="title mb-2 justify-content-center d-flex pt-3">${product.name}</h2>
+                        <div class="product-content ">
                             <div class="product-content-inner">
                                 <div>
                                     <img src="${product.imageUrl}" alt="${product.name}">
                                 </div>
-                                <div>
+                                <div class="d-flex align-items-center">
                                     <button class="quantity-modify decrease" onclick="modifyQuantity('${product.id}', -1)">-</button>
                                     <input class="quantity-input text-center" style="width: 60px;" value="${product.quantity}" min="0" max="1000" data-id="${product.id}" onchange="updateQuantityFromInput(this)">
                                     <button class="quantity-modify increase" onclick="modifyQuantity('${product.id}', 1)">+</button>
                                 </div>
                             </div>
-                            <div class="custom-price-margin">Price: $${(product.price * product.quantity).toFixed(2)}</div>
+                            <div class="custom-price-margin price-text p-2">Price: $${(product.price * product.quantity).toFixed(2)}</div>
                         </div>
                     </div>
                 </div>
@@ -183,19 +183,16 @@ const saveCart = () => {
 $(document).ready(function () {
     $('.dropdown-toggle').dropdown();
 
-    // Prevent dropdown from closing when clicked inside
     $('.dropdown-menu').on('click', function (event) {
         event.stopPropagation();
     });
 
-    // Close the dropdown when clicking outside
     $(document).on('click', function (event) {
         if (!$(event.target).closest('.dropdown').length) {
             $('.dropdown').find('.dropdown-menu').removeClass('show');
         }
     });
 
-    // Load cart from local storage
     cart = JSON.parse(localStorage.getItem('cart')) || [];
     updateCartUI();
 });
