@@ -55,21 +55,13 @@ function updateHeader() {
     }
 }
 
-function  displayProfileInfo() {
-    const user = JSON.parse(localStorage.getItem('user'));
-    const profileInfo = document.getElementById('profile-info');
 
-    if (user) {
-        profileInfo.innerHTML = `<p>${user.firstName}</p>`;
-    }
-}
 
 function toggleDropdown(event) {
     event.preventDefault();
     event.stopPropagation();
 
     const dropdown = document.getElementById('user-dropdown');
-
     dropdown.classList.toggle('show');
 
 }

@@ -44,6 +44,19 @@
     color: #2e323c;
 }
 
+.form-control:hover {
+    background-color: #007ae1;
+}
+
+.form-control::placeholder {
+    color: #000000; 
+    opacity: 1; 
+}
+
+.form-group {
+    color: #ffffff;
+}
+
 .card {
     background-color: #1d1d1d;
     -webkit-border-radius: 5px;
