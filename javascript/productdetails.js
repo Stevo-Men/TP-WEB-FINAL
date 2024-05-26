@@ -16,7 +16,7 @@ function displayProductDetails(product) {
             <img src="${product.thumbnail}" class="img-fluid" alt="${product.title}">
         </div>
         <div class="col-md-6">
-            <h2>${product.title}</h2>
+            <h2 class= "my-4" style = "font-size : 36px !important;">${product.title}</h2>
             <p><strong>Category:</strong> ${product.category}</p>
             <p><strong>Brand:</strong> ${product.brand}</p>
             <p><strong>SKU:</strong> ${product.sku}</p>
@@ -25,19 +25,19 @@ function displayProductDetails(product) {
             <p><strong>Warranty:</strong> ${product.warrantyInformation}</p>
             <p><strong>Shipping:</strong> ${product.shippingInformation}</p>
             <p><strong>Availability:</strong> ${product.availabilityStatus}</p>
-            <p><strong>Price:</strong> $${product.price} <small class="text-muted">(Discount: ${product.discountPercentage}%)</small></p>
-            <p>${product.description}</p>
-            <button class="btn btn-primary add-to-cart" data-id="${product.id}" data-name="${product.title}" data-price="${product.price}" data-image-url="${product.thumbnail}">Add to Cart</button>
+            <p><strong>Price:</strong> $${product.price} <small style=" color: #036e5f ">(Discount: ${product.discountPercentage}%)</small></p>
+            <p class = "my-2">${product.description}</p>
+            <button class="btn btn-primary add-to-cart my-4" data-id="${product.id}" data-name="${product.title}" data-price="${product.price}" data-image-url="${product.thumbnail}">Add to Cart</button>
         </div>
         <div class="col-12">
-            <h3>Reviews</h3>
+            <h2 class="my-4">Reviews</h2>
             <div class="reviews">
                 ${product.reviews.map(review => `
-                    <div class="review">
+                    <div class="review my-4">
                         <p><strong>${review.reviewerName}</strong> (${review.reviewerEmail})</p>
                         <p>Rating: ${review.rating}/5</p>
                         <p>${review.comment}</p>
-                        <small class="text-muted">${new Date(review.date).toLocaleDateString()}</small>
+                        <small class="my-2" style = "color: #036e5f ">${new Date(review.date).toLocaleDateString()}</small>
                     </div>
                 `).join('')}
             </div>

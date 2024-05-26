@@ -44,7 +44,7 @@ function updatePlaceholder() {
 
 function redirectToIndex() {
     window.location.href = 'index.html';
-  }
+}
 
 function updateUserInLocalStorage() {
     const firstNameInput = document.getElementById('firstName');
@@ -57,14 +57,15 @@ function updateUserInLocalStorage() {
         lastName: lastNameInput.value,
         username: usernameInput.value,
         email: emailInput.value,
-        image: getUserFromLocalStorage().image 
+        image: getUserFromLocalStorage().image
     };
 
     localStorage.setItem('user', JSON.stringify(updatedUser));
+    showSuccessBox(); // Display success message
+    location.reload(); // Refresh the page
 }
 
 function showSuccessBox() {
-
     document.getElementById('success-box').style.display = 'block';
 }
 

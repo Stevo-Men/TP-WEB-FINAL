@@ -13,7 +13,7 @@ function drawCard(product) {
               <p class="card-text"><strong>Category:</strong> ${product.category}</p>
               <p class="card-text"><strong>Rating:</strong> ${product.rating}/5 (${product.stock} in stock)</p>
               <p class="card-text"><strong>Price:</strong> $${product.price}</p>
-              <div class="button-align text-center">
+              <div class="button-align text-center custom-gap">
                   <button class="btn btn-primary button-products add-to-cart" id="add-to-cart-${product.id}" data-id="${product.id}" data-name="${product.title}" data-price="${product.price}" data-image-url="${product.thumbnail}">Add to Cart</button>
                   <button class="btn btn-secondary button-products product-details" data-id="${product.id}">Product Details</button>
               </div>

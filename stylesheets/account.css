@@ -1,11 +1,12 @@
 .account-form {
-    border: 1px solid #cfd1d8;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    border-radius: 2px;
-    font-size: .825rem;
-    background: #023a32;
+    border: 2px solid #cfd1d8;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    font-size: inherit; 
+    background: #000000;
     color: #2e323c;
+    width: 300px;
 }
 
 .account-form::placeholder {
@@ -13,23 +14,47 @@
     opacity: 1;     
 }
 
-.user-name {
-    font-size: 3.5rem !important;
-}
-
 .form-group {
     color: #ffffff;
 }
 
 .card {
-    background-color: #1d1d1d;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
+    background-color: rgb(25, 25, 25) !important;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
     border: 0;
     margin-bottom: 1rem;
 }
 
 .success-box {
-    background-color: #00be2c;
+    box-shadow: 0 0px 8px rgba(255, 255, 255, 0.1);
+    background-color: #036e5f  !important;
+    color: white;
+    border-radius: 12px;
+}
+
+.custom-account {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    width: 60%;
+    background-color: rgb(25, 25, 25) !important;
+
+}
+
+@media (max-width: 796px) {
+    .custom-account {
+        flex-direction: column;
+        gap: 2rem;
+    }
+}
+
+.card-custom {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0px 8px rgba(255, 255, 255, 0.1);
+    background-color: rgb(25, 25, 25) !important;
+    border: none;
 }

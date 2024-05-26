@@ -7,6 +7,13 @@ body {
     background-color: #1d1d1d;
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 header  {
     background-color: #036e60;
 }
@@ -19,11 +26,18 @@ header  {
 
 #card-container .card-settings {
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0px 8px rgba(255, 255, 255, 0.1);
     border-radius: 12px !important;
+    overflow: hidden;
     border: none;
     background-color: #ffffff;
+    background-color: rgb(25, 25, 25) !important;
     padding-block: 1rem;
+  }
+
+  .card-settings .custom-gap {
+    display: flex;
+    justify-content: space-between;
   }
   
   .card-settings:hover {
@@ -52,6 +66,7 @@ header  {
     padding: 10px 10px;
     font-size: 16px;
     border-radius: 12px;
+    overflow: hidden;
     transition: background-color 0.3s, border-color 0.3s;
     background-color: #025378 !important;
     border: none;
@@ -70,6 +85,7 @@ header  {
   padding: 10px 10px;
   font-size: 16px;
   border-radius: 12px;
+  overflow: hidden;
   transition: background-color 0.3s, border-color 0.3s;
   background-color: #036e5f !important;
   border: none;
@@ -89,13 +105,14 @@ header  {
 .navbar-nav .nav-link:hover,
 .navbar-nav .dropdown-item:hover,
 .navbar-nav .dropdown-header:hover,
-.navbar-nav .badge:hover {
-    color: #0000005d !important;
+.dropdown-toggle:hover{
+    color: #01362f !important;
 }
+
 
 .navbar-nav .nav-link .fas,
 .navbar-nav .dropdown-toggle .fas {
-    color: #ffffff !important; 
+    color: #ffffff; 
 }
 
 .navbar-nav .dropdown-menu {
@@ -114,9 +131,14 @@ header  {
 .card-settings {
     width: 300px;
     margin: 0 auto; 
-    background-color: #00000054 !important;
 }
 
+.details-background {
+    border-radius: 12px;
+    margin: 2rem;
+    background-color: rgb(25, 25, 25) !important;
+    box-shadow: 0 0px 8px rgba(255, 255, 255, 0.1);
+}
 
 
 
@@ -163,7 +185,8 @@ footer .bg-dark {
 .quantity-modify {
     padding: 6px;
     margin: 0 5px;
-    border-radius: 4px;
+    border-radius: 12px;
+    overflow: hidden;
     border: 1px solid #ffffff !important;
     cursor: pointer;
     background-color: #000000;
@@ -175,7 +198,8 @@ footer .bg-dark {
     width: 50px;
     padding: 6px;
     border: 1px solid #ffffff;
-    border-radius: 4px;
+    border-radius: 12px;
+    overflow: hidden;
     font-size: 14px;
     text-align: center;
     outline: none;
@@ -210,11 +234,25 @@ footer .bg-dark {
     color: #fff !important;
 }
 
+.button-checkout {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.checkout-container {
+    border-radius: 12px;
+    background-color: rgb(25, 25, 25) !important;
+    box-shadow: 0 0px 8px rgba(255, 255, 255, 0.1);
+
+}
+
 .dropdown-menu {
     background-color: rgb(25, 25, 25) !important;
-    border-radius: 10px;
+    border-radius: 12px;
+    overflow: hidden;
     border: none;
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0px 8px rgba(255, 255, 255, 0.1);
 }
 .checkout-style {
     width: 300px;
@@ -226,6 +264,7 @@ footer .bg-dark {
     height: 50px;
     object-fit: cover;
     border-radius: 12px;
+    overflow: hidden;
     margin-right: 10px;
 }
 
@@ -268,7 +307,12 @@ footer .bg-dark {
 
 #search-input::placeholder {
   color: #ffffff !important;
+  background-color: #000;
   opacity: 1;
+}
+
+#search-input {
+    background-color: #000 !important;
 }
 
 
@@ -291,6 +335,7 @@ footer .bg-dark {
 #search-container input {
   border: 2px solid #ffffff;
   border-radius: 12px;
+  overflow: hidden;
 }
 
 
@@ -320,7 +365,7 @@ footer .bg-dark {
   padding: 8px;
   cursor: pointer;
   border-bottom: 1px solid #ffffff;
-  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 0px 8px rgba(255, 255, 255, 0.1);
   border-top: none;
   overflow: hidden;
   background-color: #000;
@@ -382,6 +427,7 @@ footer .bg-dark {
 #search-container input {
     border: 2px solid #ffffff;
     border-radius: 12px;
+    overflow: hidden;
 }
 
 #search-container input:focus {
@@ -394,6 +440,7 @@ footer .bg-dark {
     width: 100%;
     background-color: #000000;
     border-radius: 12px;
+    overflow: hidden;
     z-index: 1000;
     position: absolute;
     border: 2px solid #fff;
@@ -439,11 +486,21 @@ footer .bg-dark {
 .user-dropdown {
     display: none;
     position: absolute;
+    top: 100%; /* Position below the parent element */
     right: 0;
-    background-color: white;
-    border: 1px solid #ccc;
-    z-index: 1000;
-    min-width: 150px;
+    box-shadow: 0 0px 8px rgba(255, 255, 255, 0.1);
+    background-color: rgb(25, 25, 25) !important;
+    border-radius: 12px;
+    overflow: hidden;
+    border: none; 
+    width: 150px;
+}
+
+
+@media (max-width: 988px) {
+    .user-dropdown {
+        position: relative;
+    }
 }
 
 .user-dropdown.show {
@@ -452,23 +509,30 @@ footer .bg-dark {
 
 .user-dropdown a {
     display: block;
-    padding: 10px;
+    padding: 1rem;
     text-decoration: none;
-    color: black;
+    color: rgb(255, 255, 255);
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: rgb(25, 25, 25) !important;
+    
 }
 
 .user-dropdown a:hover {
-    background-color: #f1f1f1;
+    background-color: #036e5f  !important;
 }
 
 .login-section .card-body {
-    background-color: #00000000 !important;
+    background-color: rgb(25, 25, 25) !important;
     color: #fff !important;
+    border-radius: 12px;
 }
 
 .login-section {
-    background-color: #0000003a !important;
+    background-color: rgb(25, 25, 25) !important;
+    box-shadow: 0 0px 8px rgba(255, 255, 255, 0.1);
     color: #fff !important;
+    border: none;
 }
 
 .form-control {
@@ -477,6 +541,7 @@ footer .bg-dark {
     font-size: 16px;
     border: 2px solid #ffffff;
     border-radius: 12px;
+    overflow: hidden;
     box-sizing: border-box;
     background-color: #000;
     color: #ffffff; 
@@ -513,6 +578,7 @@ select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
     border-radius: 12px;
+    overflow: hidden;
     -webkit-text-fill-color: #ffffff !important;
     border: 2px solid #ffffff !important; 
     font-family: inherit; 
