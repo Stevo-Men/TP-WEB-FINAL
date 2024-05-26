@@ -37,7 +37,7 @@ const updateCartForNavbar = (cartBodyId, subtotalPriceId, tpsPriceId, tvqPriceId
             row.innerHTML = `
                 <div class="checkout-product">
                     <div class="product-cart">
-                        <h2 class="title mb-2">${product.name}</h2>
+                        <h3 class="title mb-2">${product.name}</h3>
                         <div class="product-content">
                             <div class="product-content-inner">
                                 <div>
