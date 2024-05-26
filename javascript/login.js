@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const dropdown = document.getElementById('user-dropdown');
         const userLink = document.getElementById('user-link');
 
-        // If dropdown is open and click is outside the dropdown and userLink, close the dropdown
         if (dropdown.classList.contains('show') && !dropdown.contains(event.target) && event.target !== userLink) {
             dropdown.classList.remove('show');
         }
@@ -52,16 +51,27 @@ function updateHeader() {
         userLink.href = 'login.html';
         userLink.classList.remove('user-logged-in');
         userLink.onclick = null;
-        dropdown.style.display = 'none'; // Hide dropdown when user is logged out
+        dropdown.style.display = 'none'; 
+    }
+}
+
+function  displayProfileInfo() {
+    const user = JSON.parse(localStorage.getItem('user'));
+    const profileInfo = document.getElementById('profile-info');
+
+    if (user) {
+        profileInfo.innerHTML = `<p>${user.firstName}</p>`;
     }
 }
 
 function toggleDropdown(event) {
     event.preventDefault();
-    event.stopPropagation(); // Prevent the event from bubbling up to the document
+    event.stopPropagation();
 
     const dropdown = document.getElementById('user-dropdown');
+
     dropdown.classList.toggle('show');
+
 }
 
 function logout(event) {
