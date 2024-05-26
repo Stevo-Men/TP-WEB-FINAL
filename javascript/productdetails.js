@@ -8,7 +8,6 @@ function getProductDetails(productId) {
 }
 
 function displayProductDetails(product) {
-    // Update the document title with the product name
     document.title = product.title;
 
     var detailsContainer = document.getElementById("product-details");

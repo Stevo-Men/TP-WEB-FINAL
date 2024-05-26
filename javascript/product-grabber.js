@@ -1,10 +1,10 @@
 var cardContainer = document.getElementById("card-container");
-var allProducts = []; // Array to hold all products
+var allProducts = []; 
 
 function drawCard(product) {
   var card = document.createElement("div");
   card.classList.add("col");
-  card.classList.add("mb-4"); // Add margin bottom to each card for spacing
+  card.classList.add("mb-4");
   card.innerHTML = `
       <div class="card h-100 card-settings" data-id="${product.id}" data-category="${product.category}">
           <img src="${product.thumbnail}" class="card-img-top" alt="${product.title}">
@@ -13,7 +13,7 @@ function drawCard(product) {
               <p class="card-text"><strong>Category:</strong> ${product.category}</p>
               <p class="card-text"><strong>Rating:</strong> ${product.rating}/5 (${product.stock} in stock)</p>
               <p class="card-text"><strong>Price:</strong> $${product.price}</p>
-              <div class="button-align">
+              <div class="button-align text-center">
                   <button class="btn btn-primary button-products add-to-cart" id="add-to-cart-${product.id}" data-id="${product.id}" data-name="${product.title}" data-price="${product.price}" data-image-url="${product.thumbnail}">Add to Cart</button>
                   <button class="btn btn-secondary button-products product-details" data-id="${product.id}">Product Details</button>
               </div>
@@ -28,11 +28,11 @@ function getProductsFromAPI(url) {
     .then(res => res.json())
     .then(json => {
       allProducts = json.products;
-      // Filter products with rating above 4.7
+
       var topRatedProducts = allProducts.filter(product => product.rating > 4.7);
-      // Sort products by rating in descending order
+
       topRatedProducts.sort((a, b) => b.rating - a.rating);
-      // Display the top-rated products
+ 
       topRatedProducts.forEach(product => drawCard(product));
     })
     .finally(attachEventListenersToButtons);
