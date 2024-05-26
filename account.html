@@ -86,6 +86,7 @@
                                     <a href="account.html">Account</a> 
                                 </div>
                             </li>
+                            
                     </ul>
                 </div>
             </div>
@@ -99,15 +100,12 @@
                         <div class="card-body">
                             <div class="account-settings">
                                 <div class="user-profile">
-                                    <div class="user-avatar">
-                                        <img src="https://dummyjson.com/icon/emilys/128" alt="UserImage">
+                                
+                                    <h1 class="user-name mb-5">My Account</h1>
+                                    <div class="user-avatar justify-content-center d-flex">
+                                        <img src="" id="user-img" alt="UserImage">
                                     </div>
-                                    <h5 class="user-name">My Account</h5>
-                                   
-                                </div>
-                                <div class="about account-link">    
-
-                                </div>
+                                </div>                              
                             </div>
                         </div>
                     </div>
@@ -120,13 +118,13 @@
                             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-6">
                                 <div class="form-group">
                                     <label for="firstName">First Name</label>
-                                    <input type="text" class="form-control mt-2" id="firstName" placeholder="Enter full name">
+                                    <input type="text" class="form-control account-form mt-2" id="firstName" placeholder="Enter full name">
                                 </div>
                             </div>
                             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-6 ">
                                 <div class="form-group">
                                     <label for="lastName">Last Name</label>
-                                    <input type="text" class="form-control mt-2" id="lastName" placeholder="Enter email ID">
+                                    <input type="text" class="form-control mt-2 account-form" id="lastName" placeholder="Enter email ID">
                                 </div>
                             </div>
 
@@ -135,23 +133,26 @@
                             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-6">
                                 <div class="form-group">
                                     <label for="userName">Username</label>
-                                    <input type="text" class="form-control mt-2" id="userName" placeholder="Enter phone number">
+                                    <input type="text" class="form-control mt-2 account-form" id="userName" placeholder="Enter phone number">
                                 </div>
                             </div>
                             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-6">
                                 <div class="form-group">
                                     <label for="email">Email</label>
-                                    <input type="email" class="form-control mt-2" id="email" placeholder="Website url">
+                                    <input type="email" class="form-control mt-2 account-form" id="email" placeholder="Website url">
                                 </div>
                             </div>
                         </div>
                         
                         <div class="row gutters">
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                            <div class="text-right">
-                            <button type="button" id="submit" name="submit" class="btn btn-secondary">Cancel</button>
-                            <button type="button" id="submit" name="submit" class="btn btn-primary">Update</button>
+                                <div class="text-center">
+                                <button type="button" id="cancelButton" onclick="redirectToIndex()"  name="submit" class="btn btn-secondary m-3">Cancel</button>
+                                <button type="button" id="updateButton" onclick="showSuccessBox()"   name="submit" class="btn btn-primary m-2">Update</button>
+                                </div>
                             </div>
+                            <div class="col-6 offset-3 text-center p-2 success-box" id="success-box" style="display:none;">
+                                <h3>Vos informations ont été changé avec succès!</h3>
                             </div>
                         </div>
                         </div>
@@ -170,6 +171,7 @@
                         <ul class="list-unstyled mb-0">
                             <li><a href="index.html">Home</a></li>
                             <li><a href="login.html">Login</a></li>
+                            <li><a href="account.html">My Account</a></li>
                             <li><a href="shop.html">Search</a></li>
                             <li><a href="cart.html">Cart</a></li>
                         </ul>
